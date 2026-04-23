@@ -122,31 +122,37 @@ def compare(a,b):
 # 가위바위보 게임  5판 진행.  
 #  5번째 게임이 끝나면  몇승 몇패 몇무인지 출력
 
-game = ["가위","바위","보"]
+# game = ["가위","바위","보"]
 
-win = lose = draw = 0
-for i in range(5):
-    com = random.choice(game)
-    user = input("가위 바위 보 : ").strip()
+# win = lose = draw = 0
+# for i in range(5):
+#     com = random.choice(game)
+#     user = input("가위 바위 보 : ").strip()
 
-    print("컴퓨터 : ",com , " 나 : " ,user)
-    # 승 패 무 판단
-    #game.index("가위")
-    # 사전적 순서 비교  방법 은 비교연산자 
-    cidx = game.index(com)
-    uidx = game.index(user)
+#     print("컴퓨터 : ",com , " 나 : " ,user)
+#     # 승 패 무 판단
+#     #game.index("가위")
+#     # 사전적 순서 비교  방법 은 비교연산자 
+#     cidx = game.index(com)
+#     uidx = game.index(user)
 
-    comp = cidx - uidx  # 유저와 컴의 가위바위 보값 비교
-    # 가위-0, 바위-1, 보-2 ->  유저가 0 컴이 1이라면 컴의승 
-    # 즉 comp에 1이 있다면 컴의 승
+#     comp = cidx - uidx  # 유저와 컴의 가위바위 보값 비교
+#     # 가위-0, 바위-1, 보-2 ->  유저가 0 컴이 1이라면 컴의승 
+#     # 즉 comp에 1이 있다면 컴의 승
 
-    if com == user:
-        print("비김")
-        draw+=1
-    elif comp== -1 or comp==2:
-        print("나의 승")
-        win+=1
-    else:
-        print("나의 패")
-        lose+=1
-print("승 : ",win,"  패 : ",lose," 무 : ",draw)
+#     if com == user:
+#         print("비김")
+#         draw+=1
+#     elif comp== -1 or comp==2:
+#         print("나의 승")
+#         win+=1
+#     else:
+#         print("나의 패")
+#         lose+=1
+# print("승 : ",win,"  패 : ",lose," 무 : ",draw)
+a=["돈가스","라면","짬뽕","짜장면","볶음밥","순대국밥"]
+random.shuffle(a)
+print(a)
+
+b = random.sample(range(1,46), 6)
+print(b)
