@@ -1,0 +1,1 @@
+& C:/Python313/python.exe c:/jjkrclass/hallabong_python/file/file_test.py
