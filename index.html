@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="get()">데이터 가져오기</button>
+    <div id="result"></div>
+    <script>
+        async function get(){
+            try{
+                const response = await fetch("http://127.0.0.1:8000/data");
+                const data = await response.json();
+
+                const res = document.getElementById("result")
+                res.innerHTML = `<p> 이름 : ${data.name}</p>
+                <p>나이 : ${data.age}</p>`;
+            }catch(error){
+                res.innerHTML="오류";
+                console.log(error);
+            }
+        }
+    </script>
+</body>
+</html>
