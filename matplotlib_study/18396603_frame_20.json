@@ -1,0 +1,206 @@
+{
+    "id": 22775053,
+    "file": "1차/210625_segment/아파트, 주택가/중리-164.(오정 15-39) [20210619]100000-120000/video/mosaic/중리-164.(오정 15-39) [20210619]100000-120000_segment_15.mp4",
+    "metadata": {
+        "width": 1920,
+        "height": 1080,
+        "duration": 300,
+        "fps": 30,
+        "frames": 9000
+    },
+    "frames": {
+        "number": 20,
+        "image": "22775053/18396603_frame_20.png",
+        "annotations": [
+            {
+                "label": {
+                    "x": 623,
+                    "y": 899,
+                    "width": 309,
+                    "height": 182
+                },
+                "category": {
+                    "code": "vehicle",
+                    "attributes": [
+                        {
+                            "code": "vehicle_define",
+                            "value": "car"
+                        },
+                        {
+                            "code": "vehicle_status",
+                            "value": "normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "label": {
+                    "x": 711,
+                    "y": 751,
+                    "width": 208,
+                    "height": 200
+                },
+                "category": {
+                    "code": "vehicle",
+                    "attributes": [
+                        {
+                            "code": "vehicle_define",
+                            "value": "car"
+                        },
+                        {
+                            "code": "vehicle_status",
+                            "value": "normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "label": {
+                    "x": 805,
+                    "y": 583,
+                    "width": 145,
+                    "height": 124
+                },
+                "category": {
+                    "code": "vehicle",
+                    "attributes": [
+                        {
+                            "code": "vehicle_define",
+                            "value": "car"
+                        },
+                        {
+                            "code": "vehicle_status",
+                            "value": "normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "label": {
+                    "x": 880,
+                    "y": 451,
+                    "width": 117,
+                    "height": 148
+                },
+                "category": {
+                    "code": "vehicle",
+                    "attributes": [
+                        {
+                            "code": "vehicle_define",
+                            "value": "truck"
+                        },
+                        {
+                            "code": "vehicle_status",
+                            "value": "normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "label": {
+                    "x": 961,
+                    "y": 403,
+                    "width": 43,
+                    "height": 36
+                },
+                "category": {
+                    "code": "vehicle",
+                    "attributes": [
+                        {
+                            "code": "vehicle_define",
+                            "value": "car"
+                        },
+                        {
+                            "code": "vehicle_status",
+                            "value": "normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "label": {
+                    "x": 977,
+                    "y": 377,
+                    "width": 30,
+                    "height": 25
+                },
+                "category": {
+                    "code": "vehicle",
+                    "attributes": [
+                        {
+                            "code": "vehicle_define",
+                            "value": "car"
+                        },
+                        {
+                            "code": "vehicle_status",
+                            "value": "normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "label": {
+                    "x": 985,
+                    "y": 352,
+                    "width": 25,
+                    "height": 34
+                },
+                "category": {
+                    "code": "vehicle",
+                    "attributes": [
+                        {
+                            "code": "vehicle_define",
+                            "value": "truck"
+                        },
+                        {
+                            "code": "vehicle_status",
+                            "value": "normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "label": {
+                    "x": 950,
+                    "y": 857,
+                    "width": 93,
+                    "height": 218
+                },
+                "category": {
+                    "code": "person",
+                    "attributes": [
+                        {
+                            "code": "person_define",
+                            "value": "normal"
+                        },
+                        {
+                            "code": "person_status",
+                            "value": "person_status_normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "label": {
+                    "x": 1118,
+                    "y": 449,
+                    "width": 20,
+                    "height": 35
+                },
+                "category": {
+                    "code": "vehicle",
+                    "attributes": [
+                        {
+                            "code": "vehicle_define",
+                            "value": "car"
+                        },
+                        {
+                            "code": "vehicle_status",
+                            "value": "normal"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
