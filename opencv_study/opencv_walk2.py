@@ -1,12 +1,22 @@
+#  opencv_walk2.py
+
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture("opencv_study/videos/walk.mp4")
+cap = cv2.VideoCapture("opencv_study/videos/motion_car.mp4")
 
 fps = cap.get(cv2.CAP_PROP_FPS)
 delay = int( 1000/fps)
 
 pre_frame = None  
+
+# 배경 제거기 만들기 
+bgdelete = cv2.createBackgroundSubtractorMOG2(
+    history=300,  #  배경을 학습할 프레임 수 
+    varThreshold=40,  # 얼마나 달라 져야 움직임으로 판단하나? 
+    detectShadows=True  # 그림자 처리 여부 
+)
+
 
 while True:
     ret, frame = cap.read()
@@ -15,42 +25,33 @@ while True:
     
     frame = cv2.resize(frame, (480,640) )
 
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    # gray = cv2.GaussianBlur(gray, (5, 5), 0)
+    #배경 제거
+    fmask = bgdelete.apply(frame, learningRate=0.005)
 
 
-    if pre_frame is None:
-        pre_frame = gray
-        continue
-
-    diff = cv2.absdiff(pre_frame, gray) 
-    
     _, thresh = cv2.threshold(
-        diff, 120, 255, cv2.THRESH_BINARY
+        fmask, 200 , 255, cv2.THRESH_BINARY 
     )
 
-    # morphology 작업 하기 -  끊어진 부분들을 연결 시키기 
     kernel = np.ones((3,3), np.uint8)
 
-    # 노이즈 제거 
-    # opened = cv2.morphologyEx(
-    #     thresh, cv2.MORPH_OPEN ,
-    #     kernel , iterations=1
-    # )
-
-    # 끊어 진 영역 연결
-    linked = cv2.morphologyEx(
-        thresh, cv2.MORPH_CLOSE, 
-        kernel, iterations=10
+    #모폴로지 노이즈 제거
+    mask = cv2.morphologyEx(
+        thresh, cv2.MORPH_OPEN, 
+        kernel, iterations=1 
     )
 
-    morph = cv2.dilate( linked, kernel, iterations=2)
- 
+    #모폴로지 연결
+    mask = cv2.morphologyEx(
+        mask , cv2.MORPH_CLOSE,
+        kernel, iterations=5
+    )
+    #영역 확장 
+    mask = cv2.dilate( mask, kernel, iterations=2)
+    
     contours, _ = cv2.findContours(
-        morph, cv2.RETR_EXTERNAL, 
-        cv2.CHAIN_APPROX_SIMPLE
+        mask , cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
     )
-
     result = frame.copy()
     for cnt in contours:
         area = cv2.contourArea(cnt)
@@ -76,16 +77,13 @@ while True:
             (0,255,0), 2
         )
     cv2.imshow("original", frame)
-    cv2.imshow("morph",morph)
+    cv2.imshow("morph",mask)
     cv2.imshow("thresh",thresh)
-    cv2.imshow("diff",diff)
+    cv2.imshow("diff",fmask)
     cv2.imshow("box",result)
 
     if cv2.waitKey(delay) == 27:
         break
-
-    pre_frame = gray
-
 
 cap.release()
 cv2.destroyAllWindows()
