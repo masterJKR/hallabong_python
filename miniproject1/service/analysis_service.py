@@ -55,7 +55,7 @@ def get_attend_graph_service(db):
     for label, value in zip(labels, attend_counts.values):
         legend_labels.append( f"{label} ({value}명)")
 
-    fig, ax =plt.subplts(figsize=(8,5))
+    fig, ax =plt.subplots(figsize=(8,5))
 
     wedges, texts, autotexts = ax.pie(
         attend_counts.values,
